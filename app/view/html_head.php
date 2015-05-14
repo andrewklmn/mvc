@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+<?php
+
+    include_once 'app/model/htmlfix.php';
+    
+?><!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php  
-        if (isset($data['title'])) echo htmlfix($data['title']);
+        if (isset($data['title'])) echo $data['title'];
     ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -17,5 +21,11 @@
     <![endif]-->
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 30px;
+        };
+    </style>
   </head>
-  <body>
+<body role="document">
