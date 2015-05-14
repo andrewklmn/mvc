@@ -11,15 +11,6 @@
 
     if (!isset($c)) exit;
     
-    // Set parameters of your MySQL server
-    define('DB_HOST', 'localhost');
-    define('DB_PORT', 3306);
-    define('DB_USER', 'u938808713_user');
-    define('DB_PASS', 'u938808713_');
-    define('DB_NAME', 'u938808713_base');
-    define('DB_CHARSET', 'cp1251');
-    
-    
     // Remove before created instance
     if (isset($db)) {
         if ($db instanceof mysqli) { 
@@ -28,6 +19,8 @@
             unset ($db);
         }
     };
+    
+    include_once 'config.php';
     
     $db = mysqli_connect( DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
     

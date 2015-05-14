@@ -18,7 +18,7 @@
                 $_SESSION[$program]['tries'] = 
                     (isset($_SESSION[$program]['tries'])) 
                         ? $_SESSION[$program]['tries']++ : 1 ;
-                $message = '<h1>Wrong code. Try again:</h1>';
+                $message = 'Wrong code. Try again:';
                 include 'app/view/login.php';
                 exit;                
             }
@@ -30,7 +30,7 @@
         } else {
             if (isset($_SESSION[$program]['tries'])) {
                 if ($_SESSION[$program]['tries'] < 5) {
-                    $message = '<h1>Wrong login/pass. Try again:</h1>';
+                    $message = 'Wrong login/pass. Try again:';
                     include 'app/view/login.php';
                     $_SESSION[$program]['tries'] += 1;
                     exit;                
@@ -41,14 +41,14 @@
                 }                
             } else {
                 $_SESSION[$program]['tries'] = 1;
-                $message = '<h1>Wrong login/pass. Try again:</h1>';
+                $message = 'Wrong login/pass. Try again:';
                 include 'app/view/login.php';
                 exit;
             }
         }
     } else {
         // show login form
-        $message = '<h1>Enter your login and password:</h1>';
+        $message = 'Please sign in:';
         include 'app/view/login.php';
         exit;
     };

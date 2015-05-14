@@ -8,7 +8,15 @@
     //@ob_start("ob_gzhandler"); // gz-compressed output
     
     error_reporting(E_ALL);     // for debbuging mode
-    //error_reporting(0);     // for production mode    
+    //error_reporting(0);     // for production mode  
+    
+    function pre($x){
+        echo '<pre>';
+        print_r($x);
+        echo '</pre>';
+    };
+
+
     date_default_timezone_set('Europe/Kiev');
     session_start();
     
@@ -33,11 +41,19 @@
         include 'app/controller/check_auth.php';
     };
     
-    if (file_exists('app/controller/'.$c.'.php')) {
-        include 'app/controller/'.$c.'.php';
-    } else {
-        include 'app/view/404.php';
-    };   
+    switch ($c) {
+        case 'logout':
+            include 'app/controller/logout.php';
+            break;
+        default:
+            if (file_exists('app/controller/'.$_SESSION[$program]['role'].'/'.$c.'.php')) {
+                include 'app/controller/'.$_SESSION[$program]['role'].'/'.$c.'.php';
+            } else {
+                include 'app/view/404.php';
+            };   
+            break;
+    };
+    
     
     //@ob_end_flush();
     
