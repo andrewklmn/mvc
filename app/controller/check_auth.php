@@ -27,6 +27,7 @@
         if ( check_auth($_POST['username'],$_POST['password']) ) {
             $_SESSION[$program]['tries'] = 1;
             $_SESSION[$program]['auth'] = 1;
+            
         } else {
             if (isset($_SESSION[$program]['tries'])) {
                 if ($_SESSION[$program]['tries'] < 5) {
@@ -54,6 +55,7 @@
     };
 
     function check_auth( $user, $pass ){
+        global $program;
         include 'app/model/auth/users.php';
         include 'app/model/auth/ips.php';
         foreach ($users as $key=>$value) {
@@ -61,8 +63,11 @@
                 foreach ($ips as $val) {
                     if ($value[0]==$val[0] 
                         AND substr($_SERVER['HTTP_HOST'], 0, strlen($val[1]))==$val[1]) 
-                            return true;
-                }
+                    {
+                        $_SESSION[$program]['role'] = $value[3];
+                        return true;
+                    }
+                };
             };
         };
         return false;
