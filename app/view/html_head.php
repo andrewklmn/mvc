@@ -23,7 +23,7 @@
     <script src="js/bootstrap.min.js"></script>
     <style>
         body {
-            padding-top: 70px;
+            padding-top: 50px;
             padding-bottom: 30px;
         };
     </style>

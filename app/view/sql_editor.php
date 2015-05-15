@@ -26,15 +26,18 @@
     };
 </script>
 <div class="row">
-    <div class="col-lg-10">
-        <textarea id="sql" style="height:200px;font-size: 11px;" class="field form-control" ></textarea>
+    <div class="col-lg-9">
+        <small style="color:gray;">ALTER TABLE tablename AUTO_INCREMENT = 1;</small>
+        <br/>
+        <textarea id="sql" style="height:180px;font-size: 11px;" class="field form-control" ></textarea>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-3">
             <?php 
                 $sql = 'SHOW TABLES;';
                 $tables = get_array_from_sql($sql);
             ?>
-            Table: 
+            Table:
+            <br/>
             <select id="sql_action">
                 <?php 
                     foreach ($tables as $value) {
@@ -42,24 +45,18 @@
                     };
                 ?>
             </select>
-            <button class="btn btn-xs btn-primary" onclick="sql_action(this);">Describe table</button>
-            <button class="btn btn-xs btn-success" onclick="sql_action(this);">Select all</button>
-            <button class="btn btn-xs btn-warning" onclick="sql_action(this);">Update</button>
-            <button class="btn btn-xs btn-info" onclick="sql_action(this);">Insert</button>
-            <button class="btn btn-xs btn-danger"  onclick="sql_action(this);">Delete</button>
-            <small>ALTER TABLE tablename AUTO_INCREMENT = 1;</small>
+            <br/>
+            <div class="btn-group btn-group-vertical">
+                <button type="button" class="btn btn-md btn-primary" onclick="sql_action(this);">Describe table</button>
+                <button type="button" class="btn btn-md btn-success" onclick="sql_action(this);">Select all</button>
+                <button type="button" class="btn btn-md btn-warning" onclick="sql_action(this);">Update</button>
+                <button type="button" class="btn btn-md btn-info" onclick="sql_action(this);">Insert</button>
+                <button type="button" class="btn btn-md btn-danger"  onclick="sql_action(this);">Delete</button>
+            </div>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        WHERE <input type='text' id='where' value='' class="field"/>
-        ORDER BY <input type='text' id='order_by' value='' class="field"/>
-        <select id='order_type' class="field">
-            <option>ASC</option>
-            <option selected="selected">DESC</option>
-        </select>
-        LIMIT <input type='text' id='limit' value='' class="field"/>
-        <br/>
         <button 
              class="btn btn-sm btn-info" 
             id='run'
@@ -109,6 +106,13 @@
                     }
                 });
             ">Make table_form</button>
+        WHERE <input style="width:100px;" type='text' id='where' value='' class="field"/>
+        ORDER BY <input style="width:100px;" type='text' id='order_by' value='' class="field"/>
+        <select style="width:70px;"  id='order_type' class="field">
+            <option>ASC</option>
+            <option selected="selected">DESC</option>
+        </select>
+        LIMIT <input style="width:40px;" type='text' id='limit' value='' class="field"/>
     </div>
 </div>
 <br/>

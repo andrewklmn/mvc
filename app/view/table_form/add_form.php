@@ -89,8 +89,14 @@
                 ?>
             </form>
         </div>
-        <a href="?<?php echo $_SERVER['QUERY_STRING']; ?>" class="btn btn-md btn-primary">Cancel</a>
-        <button onclick="add_record(this);" class="btn btn-md btn-warning">Add new record</button>
+        <a href="?<?php echo $_SERVER['QUERY_STRING']; ?>" class="btn btn-md btn-default">
+            <span class="glyphicon glyphicon-remove"></span>
+            Cancel
+        </a>
+        <button onclick="add_record(this);" class="btn btn-md btn-warning">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add new record
+        </button>
         <form method="POST" id="form" style="display: none;">
             <input type="hidden" id="table" name="table" value="<?php echo $table['id']; ?>"/>
             <input type="hidden" id="action" name="action" value="add"/>

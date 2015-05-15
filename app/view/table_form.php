@@ -129,7 +129,7 @@
             <thead>
                 <tr>
                     <th>
-                        <span class="glyphicon glyphicon-unchecked"
+                        <span class="hidden-print glyphicon glyphicon-unchecked"
                               onclick="click_selector_driver_<?php echo $table['id']; ?>(this);"></span>
                     </th>
                     <?php 
@@ -168,7 +168,7 @@
         </table>
     </div>
 </div>
-<div class="row">
+<div class="row hidden-print">
     <div class='col-lg-12'>
         <div class='' style='padding: 3px;'>
             <div class="text-left" style='padding: 0px;'>
@@ -184,7 +184,7 @@
 <?php 
     if (isset($table['sql']) AND $table['sql']<>'') {
 ?>
-    <div class='row'>
+    <div class='row hidden-print'>
         <div class="col-lg-8" style='padding-top: 5px;'>
              <div class="btn-group">
         <?php

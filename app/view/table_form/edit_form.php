@@ -74,10 +74,10 @@
                                     };
                                     ?>
                                         <div class="form-group" style="<?php echo $display; ?>">
-                                            <label class="control-label col-sm-2" for="<?php echo $table['field'][$k]; ?>">
+                                            <label class="control-label col-lg-1" for="<?php echo $table['field'][$k]; ?>">
                                                 <?php echo $table['label'][$k]; ?>:
                                             </label>
-                                            <div class="col-sm-10">
+                                            <div class="col-lg-11">
                                             <?php 
 
                                                 switch ($table['format'][$k]) {
@@ -105,8 +105,13 @@
                 <?php
             };
         ?>
-        <a href="?<?php echo $_SERVER['QUERY_STRING']; ?>" class="btn btn-md btn-primary">Cancel</a>
-        <button onclick="save_records(this);" class="btn btn-md btn-warning">Save changes</button>
+        <a href="?<?php echo $_SERVER['QUERY_STRING']; ?>" class="btn btn-md btn-default">
+            <span class="glyphicon glyphicon-remove"></span>Cancel
+        </a>
+        <button onclick="save_records(this);" class="btn btn-md btn-info">
+            <span class="glyphicon glyphicon-ok"></span>
+            Save changes
+        </button>
         <form method="POST" id="form" style="display: none;">
             <input type="hidden" id="table" name="table" value="<?php echo $table['id']; ?>"/>
             <input type="hidden" id="action" name="action" value="edit"/>

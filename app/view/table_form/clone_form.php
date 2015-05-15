@@ -103,8 +103,14 @@
                 <?php
             };
         ?>
-        <a href="?<?php echo $_SERVER['QUERY_STRING']; ?>" class="btn btn-md btn-primary">Cancel</a>
-        <button onclick="save_records(this);" class="btn btn-md btn-warning">Add as new</button>
+        <a href="?<?php echo $_SERVER['QUERY_STRING']; ?>" class="btn btn-md btn-default">
+            <span class="glyphicon glyphicon-remove"></span>
+            Cancel
+        </a>
+        <button onclick="save_records(this);" class="btn btn-md btn-success">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add as new
+        </button>
         <form method="POST" id="form" style="display: none;">
             <input type="hidden" id="table" name="table" value="<?php echo $table['id']; ?>"/>
             <input type="hidden" id="action" name="action" value="clone"/>

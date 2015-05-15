@@ -43,7 +43,7 @@
         ?>
             <style>
                 table<?php echo '#'.$table['id']; ?> th {
-                    background-color: greenyellow;
+                    background-color: #e5e5e5;
                     font-family: <?php echo $fontfamily; ?>;
                     font-size: 10px;
                 }
@@ -51,17 +51,20 @@
                     font-family: <?php echo $fontfamily; ?>;
                     font-size: 10px;
                 }
+                table<?php echo '#'.$table['id']; ?> tr {
+                    cursor: pointer;
+                }
                 tr.selected {
-                    background-color: lightblue;
+                    background-color: #d9edf7;
                 }
                 tr.selected:hover,tr.selectedhover {
-                    background-color: dodgerblue;
+                    background-color: #a6e1ec;
                 }               
                 tr.table_data {
                     background-color: white;
                 }
                 tr.table_data:hover,tr.table_datahover {
-                    background-color: lightgray;
+                    background-color: #f5f5f5;
                 }
           </style>
       <?php  
@@ -172,11 +175,15 @@
                 echo '<th style="font-size:'.$fontsize.';width:30px;">п/п</th>';
             }
             foreach ($table['header'] as $key=>$value) {
+                $hide = '';
+                if ($key==0 AND $table['hide_first']==true) {
+                    $hide = 'hide'; 
+                };
                 $align = (isset($table['align'][$key])) ? $table['align'][$key]:'center';
                 if (isset($table['width'][$key])) {
-                    echo '<th style="text-align:'.$align.';width:'.$table['width'][$key].'px;font-size:'.$fontsize.';">';
+                    echo '<th class="'.$hide.'" style="text-align:'.$align.';width:'.$table['width'][$key].'px;font-size:'.$fontsize.';">';
                 } else {
-                    echo '<th style="text-align:'.$align.';font-size:'.$fontsize.';">';
+                    echo '<th class="'.$hide.'" style="text-align:'.$align.';font-size:'.$fontsize.';">';
                 }
                 echo htmlfix($value);
                 echo '</th>';
@@ -202,12 +209,16 @@
                 }
                 $ii=0;
                 foreach ($value as $k=>$v) {
+                    $hide = '';
+                    if ($k==0 AND $table['hide_first']==true) {
+                        $hide = 'hide'; 
+                    };
                     $align = (isset($table['align'][$ii])) ? $table['align'][$ii]:'center';
                     if (isset($table['width'][$ii])) {
-                        echo '<td style="text-align:'.$align.';width:'.$table['width'][$ii]
+                        echo '<td class="field '.$hide.'" style="text-align:'.$align.';width:'.$table['width'][$ii]
                                 .'px;font-size:'.$fontsize.';">';
                     } else {
-                        echo '<td style="text-align:'.$align.';font-size:'.$fontsize.';">';
+                        echo '<td class="field '.$hide.'" style="text-align:'.$align.';font-size:'.$fontsize.';">';
                     }
                     echo htmlfix($v);
                     echo '</td>';
@@ -222,11 +233,15 @@
                 echo '<th align="center" style="width:30px;"></th>';
             }        
             foreach ($table['footer'] as $key=>$value) {
+                $hide = '';
+                if ($key==0 AND $table['hide_first']==true) {
+                    $hide = 'hide'; 
+                };
                 $align = (isset($table['align'][$key])) ? $table['align'][$key]:'center';
                 if (isset($table['width'][$key])) {
-                    echo '<th style="text-align:'.$align.';width:'.$table['width'][$key].'px;font-size:'.$fontsize.';">';
+                    echo '<th class="'.$hide.'" style="text-align:'.$align.';width:'.$table['width'][$key].'px;font-size:'.$fontsize.';">';
                 } else {
-                    echo '<th style="text-align:'.$align.';font-size:'.$fontsize.';">';
+                    echo '<th class="'.$hide.'" style="text-align:'.$align.';font-size:'.$fontsize.';">';
                 }
                 echo htmlfix($value);
                 echo '</th>';

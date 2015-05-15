@@ -19,6 +19,7 @@
     
    
 ?>
+<br/>
 <div class="container">
     <?php
         include 'app/model/admin/table_renters.php';
