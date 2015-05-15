@@ -49,5 +49,7 @@
             <li><a href="#" onclick="next_<?php echo $table['id']; ?>(this);">Next</a></li>
         </ul>
         <?php
-    };
+    }; 
+    
+    
 ?>

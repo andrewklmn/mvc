@@ -56,7 +56,8 @@
                     };
                     break;
                 case 'print': case 'csv': case 'construct':
-                    pre($table['path']);
+                    //pre($table['path']);
+                    //pre($_POST);
                     break;
             };
         };

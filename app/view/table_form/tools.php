@@ -6,16 +6,37 @@
 ?>
 <script>
     function csv_<?php echo $table['id']; ?>(elem) {
-            $('form#table_<?php echo $table['id']; ?> > input#action').val('csv');
-            $('form#table_<?php echo $table['id']; ?>').submit();        
+        var trs = $('table#<?php echo $table['id']; ?>').find('span.glyphicon-ok');
+        var ids = [];
+        $(trs).each(function(){
+            var tds = $(this.parentNode.parentNode).find('td.field')
+            ids[ids.length] = $(tds[0]).html();
+        });
+        $('form#table_<?php echo $table['id']; ?> > input#ids').val(ids.join('|'));
+        $('form#table_<?php echo $table['id']; ?> > input#action').val('csv');
+        $('form#table_<?php echo $table['id']; ?>').submit();        
     };
     function print_<?php echo $table['id']; ?>(elem) {
-            $('form#table_<?php echo $table['id']; ?> > input#action').val('print');
-            $('form#table_<?php echo $table['id']; ?>').submit();        
+        var trs = $('table#<?php echo $table['id']; ?>').find('span.glyphicon-ok');
+        var ids = [];
+        $(trs).each(function(){
+            var tds = $(this.parentNode.parentNode).find('td.field')
+            ids[ids.length] = $(tds[0]).html();
+        });
+        $('form#table_<?php echo $table['id']; ?> > input#ids').val(ids.join('|'));
+        $('form#table_<?php echo $table['id']; ?> > input#action').val('print');
+        $('form#table_<?php echo $table['id']; ?>').submit();        
     };
     function construct_<?php echo $table['id']; ?>(elem) {
-            $('form#table_<?php echo $table['id']; ?> > input#action').val('construct');
-            $('form#table_<?php echo $table['id']; ?>').submit();        
+        var trs = $('table#<?php echo $table['id']; ?>').find('span.glyphicon-ok');
+        var ids = [];
+        $(trs).each(function(){
+            var tds = $(this.parentNode.parentNode).find('td.field')
+            ids[ids.length] = $(tds[0]).html();
+        });
+        $('form#table_<?php echo $table['id']; ?> > input#ids').val(ids.join('|'));
+        $('form#table_<?php echo $table['id']; ?> > input#action').val('construct');
+        $('form#table_<?php echo $table['id']; ?>').submit();        
     };
     
 </script>
