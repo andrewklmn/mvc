@@ -11,20 +11,23 @@
     include_once 'app/model/db/db.php';
     include_once 'app/view/draw_table_from_sql.php';
         
-    $data['title'] = 'Index';
+    $data['title'] = 'Editor';
     include 'app/view/html_head.php';
     
     include 'app/model/admin/menu.php';
     include 'app/view/menu.php';
     
-   
+    //pre($_POST);
 ?>
-<br/>
 <div class="container">
     <?php
-        pre($_SESSION);
-        //include 'app/view/sql_editor.php';
+        $data['root'] = $_SERVER['DOCUMENT_ROOT'].'/mvc';
+        $data['current_dir'] = $root;
+        include 'app/view/file_browser.php';
     ?>
 </div>
+<?php
+    //pre($_POST);
+?>
 </body>
 </html>

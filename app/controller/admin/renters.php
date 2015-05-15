@@ -11,7 +11,7 @@
     include_once 'app/model/db/db.php';
     include_once 'app/view/draw_table_from_sql.php';
         
-    $data['title'] = 'Index';
+    $data['title'] = 'Renters';
     include 'app/view/html_head.php';
     
     include 'app/model/admin/menu.php';
@@ -19,11 +19,10 @@
     
    
 ?>
-<br/>
 <div class="container">
     <?php
-        pre($_SESSION);
-        //include 'app/view/sql_editor.php';
+        include 'app/model/admin/table_renters.php';
+        include 'app/view/table_form.php';
     ?>
 </div>
 </body>

@@ -42,22 +42,21 @@
     };
     
     if (isset($_POST['action']) AND isset($_POST['table'])) {
-        include 'common/view/header_utf-8.php';
         switch ($_POST['action']) {
             case 'Describe table':
                 echo 'DESCRIBE ',$_POST['table'];
                 break;
             case 'Select all':
-                include 'admin/controller/sql_editor/select_all.php';
+                include 'select_all.php';
                 break;
             case 'Update':
-                include 'admin/controller/sql_editor/update.php';
+                include 'update.php';
                 break;
             case 'Insert':
-                include 'admin/controller/sql_editor/insert.php';
+                include 'insert.php';
                 break;
             case 'Delete':
-                include 'admin/controller/sql_editor/delete.php';
+                include 'delete.php';
                 break;
             default:
                 break;

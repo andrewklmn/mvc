@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Default Controller
- */
-
     // Check run constant
     if(!isset($c)) exit;
     

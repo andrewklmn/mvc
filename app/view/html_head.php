@@ -12,7 +12,7 @@
         if (isset($data['title'])) echo $data['title'];
     ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,7 +23,7 @@
     <script src="js/bootstrap.min.js"></script>
     <style>
         body {
-            padding-top: 50px;
+            padding-top: 70px;
             padding-bottom: 30px;
         };
     </style>

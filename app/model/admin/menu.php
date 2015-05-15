@@ -3,12 +3,13 @@
     if(!isset($c)) exit;
 
     $menu = array(
-        array('index','Home'),
+        array('index','Objects'),
+        array('renters','Renters'),
         array(
-            array( '','Dropdown'),
-            array('index','Home'),
+            array( '','Tools'),
+            array('file_browser','File browser'),
+            array('sql','SQL')
             //array('-',''),
-            array('logout','Sign out')
         ),
         array('logout','Sign out')
     );

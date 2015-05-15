@@ -1,26 +1,25 @@
 <?php
 
-    /*
+    /* 
      * Simple MVC framework based on "include" and without OOP...
-     * Keep It Simple Stupid 0.0.1 20150315
+     * Keep It Simple Stupid 0.0.1
      */
 
     //@ob_start("ob_gzhandler"); // gz-compressed output
     
     error_reporting(E_ALL);     // for debbuging mode
-    //error_reporting(0);     // for production mode  
-    
-    function pre($x){
-        echo '<pre>';
-        print_r($x);
-        echo '</pre>';
-    };
-
+    //error_reporting(0);     // for production mode    
     date_default_timezone_set('Europe/Kiev');
     session_start();
     
     $program = 'mvc';           // short application name
     
+    include_once 'app/model/htmlfix.php';
+    function pre($x) {
+        echo '<pre>';
+        print_r($x);
+        echo '</pre>';
+    };
     
     // move to secure connection
     if($_SERVER['SERVER_PORT'] != 443) {
@@ -29,10 +28,19 @@
         exit();
     };
     
+    
+    include 'app/view/header_utf-8.php';
+    
     // start controller
     $c = (!isset($_GET['c']) OR $_GET['c']=='') 
         ? 'index' 
         : preg_replace("/[^a-z\_\/0-9]/",'',  strtolower($_GET['c']));
+    
+    // start login-pass operation before authorization
+    if ($c=='registration' OR $c=='remember') {
+        include 'app/controller/'.$c.'.php';
+        exit;
+    };
     
     // check auth
     if (!isset($_SESSION[$program]['auth']) OR $_SESSION[$program]['auth']<>1 ) {
@@ -42,15 +50,15 @@
     
     switch ($c) {
         case 'logout':
-            include 'app/controller/logout.php';
-            break;
+        case 'code':
+            include 'app/controller/'.$c.'.php';
+        break;
         default:
             if (file_exists('app/controller/'.$_SESSION[$program]['role'].'/'.$c.'.php')) {
                 include 'app/controller/'.$_SESSION[$program]['role'].'/'.$c.'.php';
             } else {
                 include 'app/view/404.php';
-            };   
-            break;
+            };            
     };
     
     
