@@ -1,6 +1,5 @@
 <?php
 
-    // Check run constant
     if(!isset($c)) exit;
     
 ?>

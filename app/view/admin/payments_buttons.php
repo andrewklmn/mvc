@@ -13,7 +13,8 @@
         var tds = $(trs[0]).find('td');
         location.href = '?c=bill&day=' 
                 + encodeURIComponent($(tds[0]).html())
-                + '&renter=' + encodeURIComponent("<?php echo $renter; ?>");
+                + '&renter=' + encodeURIComponent("<?php echo $renter; ?>")
+                + '&id=' + encodeURIComponent("<?php echo $_GET['id']; ?>");
     };
     function add_payment(){
         location.href = '?c=add_new_payment&id=' 
@@ -22,5 +23,6 @@
                 + '&object=' + encodeURIComponent("<?php echo $row[1]; ?>");
     };
 </script>
+    <a class="btn btn-default" href="?c=index">Назад к объектам</a>
     <button class="btn btn-primary" onclick="open_bill();">Открыть счёт</button>
     <button class="btn btn-danger" onclick="add_payment();">Добавить оплату</button>

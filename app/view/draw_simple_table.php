@@ -30,7 +30,7 @@
         }
 
         
-        $fontsize = (isset($table['fontsize'])) ? $table['fontsize'] : '10px';
+        $fontsize = (isset($table['fontsize'])) ? $table['fontsize'] : '1pm';
         $width = (isset($table['width'])) ? $table['width'] : array();
         $table['id'] = (isset($table['id'])) ? $table['id'] : 'table';
         $fontfamily = (isset($table['fontfamily'])) ? $table['font-family']:'sans-serif';
@@ -45,25 +45,25 @@
                 table<?php echo '#'.$table['id']; ?> th {
                     background-color: #e5e5e5;
                     font-family: <?php echo $fontfamily; ?>;
-                    font-size: 10px;
                 }
                 table<?php echo '#'.$table['id']; ?> td {
                     font-family: <?php echo $fontfamily; ?>;
-                    font-size: 10px;
                 }
                 table<?php echo '#'.$table['id']; ?> tr {
                     cursor: pointer;
                 }
-                tr.selected {
+                table<?php echo '#'.$table['id']; ?> tr.selected {
                     background-color: #d9edf7;
                 }
-                tr.selected:hover,tr.selectedhover {
+                table<?php echo '#'.$table['id']; ?> tr.selected:hover,
+                table<?php echo '#'.$table['id']; ?> tr.selectedhover {
                     background-color: #a6e1ec;
                 }               
-                tr.table_data {
+                table<?php echo '#'.$table['id']; ?> tr.table_data {
                     background-color: white;
                 }
-                tr.table_data:hover,tr.table_datahover {
+                table<?php echo '#'.$table['id']; ?> tr.table_data:hover,
+                table<?php echo '#'.$table['id']; ?> tr.table_datahover {
                     background-color: #f5f5f5;
                 }
           </style>
@@ -171,12 +171,12 @@
          */
         if (isset($table['header'])) {
             echo '<tr id="header">';
-            if (isset($table['count']) AND $table['count']==true) {
+            if (isset($table['count']) AND $table['count']==1) {
                 echo '<th style="font-size:'.$fontsize.';width:30px;">п/п</th>';
             }
             foreach ($table['header'] as $key=>$value) {
                 $hide = '';
-                if ($key==0 AND $table['hide_first']==true) {
+                if ($key==0 AND $table['hide_first']==1) {
                     $hide = 'hide'; 
                 };
                 $align = (isset($table['align'][$key])) ? $table['align'][$key]:'center';
@@ -203,14 +203,14 @@
                     ';
                 };    
                 echo '>';
-                if (isset($table['count']) AND $table['count']==true) {
+                if (isset($table['count']) AND $table['count']==1) {
                     echo '<td align="center" style="width:30px;cursor:pointer;font-size:'.$fontsize.';">'.$i.'</td>';
                     $i++;
                 }
                 $ii=0;
                 foreach ($value as $k=>$v) {
                     $hide = '';
-                    if ($k==0 AND $table['hide_first']==true) {
+                    if ($k==0 AND $table['hide_first']==1) {
                         $hide = 'hide'; 
                     };
                     $align = (isset($table['align'][$ii])) ? $table['align'][$ii]:'center';
@@ -229,12 +229,12 @@
         }
         if (isset($table['footer'])) {
             echo '<tr id="footer">';  
-            if (isset($table['count']) AND $table['count']==true) {
+            if (isset($table['count']) AND $table['count']==1) {
                 echo '<th align="center" style="width:30px;"></th>';
             }        
             foreach ($table['footer'] as $key=>$value) {
                 $hide = '';
-                if ($key==0 AND $table['hide_first']==true) {
+                if ($key==0 AND $table['hide_first']==1) {
                     $hide = 'hide'; 
                 };
                 $align = (isset($table['align'][$key])) ? $table['align'][$key]:'center';

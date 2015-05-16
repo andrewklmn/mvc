@@ -123,7 +123,7 @@
                 <?php
             };
         ?>
-        <table class="table table-hover" 
+        <table class="table table-hover table-condensed" 
                id="<?php echo $table['id']; ?>"
                style='margin-bottom: 0px;'>
             <thead>
@@ -191,7 +191,7 @@
 
 
                 if ($table['editable']==1) echo '<button type="button" onclick="edit_'.
-                        $table['id'].'(this);" class="btn btn btn-default"
+                        $table['id'].'(this);" class="btn btn-default"
                             data-toggle="tooltip" title="Edit">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button> ';
@@ -215,11 +215,16 @@
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>';
             ?>
-              <div class="btn-group">
+            </div>
+            <div class="btn-group">
                 <?php
                     include 'table_form/tools.php';
                 ?>
-              </div>
+            </div>
+            <div class="btn-group">
+                <?php
+                    include 'table_form/search.php';
+                ?>
             </div>
             <?php
                 if ($table['groupeditable']==1 AND $table['editable']==1) {
@@ -233,17 +238,22 @@
         ?>
     </div>
     <?php 
-        };
-    ?>
+    };
+    
+?>
     <form id="table_<?php echo $table['id']; ?>" style="display: none;" method="POST">
-        <input type="hidden" id="action" name="action" value=""/>
+        <input type="hidden" id="action" name="record_action" value=""/>
         <input type="hidden" id="table" name="table" value="<?php echo $table['id']; ?>"/>
         <input type="hidden" id="name" name="name" value=""/>
         <input type="hidden" id="value" name="value" value=""/>
         <input type="hidden" id="ids" name="ids" value=""/>
         <input type='hidden' id='data' name='data' value=''>
+        <input type='hidden' id='search' name='search' value='<?php echo $_POST['search']; ?>'>
         <!-- раздел для фильтра, сортировки, страницы -->
         <input type="hidden" id="page" name="page" value="<?php echo $_POST['page']; ?>"/>
+        <?php
+            include 'table_form/activate_make_form.php';
+    ?>
     </form> 
 </div>
 <?php unset($table); ?>

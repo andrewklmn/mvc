@@ -2,7 +2,7 @@
 
     /* 
      * Simple MVC framework based on "include" and without OOP...
-     * Keep It Simple Stupid 0.0.1
+     * Keep It Simple Stupid 0.0.2
      */
 
     //@ob_start("ob_gzhandler"); // gz-compressed output

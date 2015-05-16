@@ -2,8 +2,8 @@
 
 
     if(!isset($c)) exit;
-    include_once 'common/model/db/db.php';
-    include_once 'common/view/draw_table_from_sql.php';
+    include_once 'app/model/db/db.php';
+    include_once 'app/view/draw_table_from_sql.php';
     
     
     if (isset($_POST['action'])) {
@@ -34,8 +34,10 @@
     };
     
     $data['title'] = 'Оплата от: '.$_GET['renter'];
-    include 'common/view/bootstrap_html_header.php';
-    include_once 'common/view/draw_table_from_sql.php';
+    include 'app/view/html_head.php';
+    
+    include 'app/model/admin/menu.php';
+    include 'app/view/menu.php';
         
 ?>
 <script>

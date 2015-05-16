@@ -5,7 +5,7 @@
 ?>
 <script>
     function set_value_<?php echo $table['id']; ?>(){
-        var trs = $('table#<?php echo $table['id']; ?>').find('span.checker');
+        var trs = $('table#<?php echo $table['id']; ?>').find('span.glyphicon-ok');
         var val = $('input#val_<?php echo $table['id']; ?>');
         var name = $('select#name_<?php echo $table['id']; ?>');
         if (trs.length == 0) return true;
@@ -23,8 +23,8 @@
 </script>
 <div class="btn-group">
     <select id="name_<?php echo $table['id']; ?>" 
-            name="field_name" class="btn btn-sm btn-default" 
-            style="width:110px;text-align: left;">
+            name="field_name" class="btn btn-default" 
+            style="width:100px;text-align: left;">
         <?php 
             foreach ($table['field'] as $key => $value) {
                 if ($field_prop[$key]['key']!='UNI' 
@@ -34,9 +34,8 @@
             };
         ?>
     </select>
-    <input role="button" class="input-sm form-control btn btn-md" type="text" id="val_<?php echo $table['id']; ?>" 
-           placeholder="Enter value..."
-           value="" style="width:100px;text-align: center;"/>
+    <input role="button" class="btn" type="text" id="val_<?php echo $table['id']; ?>" 
+           value="" style="border: #ccc solid thin;width:100px;text-align: center;"/>
     <button class="btn btn-md btn-default" 
             data-toggle="tooltip" title="Set value"
             onclick="set_value_<?php echo $table['id']; ?>();">

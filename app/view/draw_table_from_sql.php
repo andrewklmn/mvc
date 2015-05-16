@@ -14,7 +14,7 @@
         
         // Получаем информацию о полях запроса
         $fields = fetch_fields_info_from_sql($sql);
-        $table['fontsize'] = '14px';
+        //$table['fontsize'] = '14px';
         
         //$table['data'] = $fields;
         //draw_simple_table($table);

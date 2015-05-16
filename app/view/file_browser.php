@@ -13,7 +13,7 @@
 
 
 
-    if ($_POST['action']=='directory') {
+    if ($_POST['record_action']=='directory') {
         if ($_POST['choise']=='Cancel') {
             $t = explode('/', $_POST['data']);
             unset($t[count($t)-1]);
@@ -56,7 +56,7 @@
                 ?>  
                     <form method="POST" role="form">
                         <h4 class="form-signin-heading">Edit: <?php echo str_replace($root,'', $_POST['data']); ?></h4>
-                        <input type="hidden" name="action" value="directory">
+                        <input type="hidden" name="record_action" value="directory">
                         <input type="hidden" name="data" value="<?php echo $_POST['data']; ?>">
                         <textarea 
                             name="code" style="height:350px;font-family:monospace;" class='form-control'><?php 
@@ -121,9 +121,11 @@
     
 
 ?>
+<!--
 <div class="container">
     <button class="btn btn-default">Download</button>
     <button class="btn btn-default">Create directory</button>
     <button class="btn btn-default">Create file</button>
     <button class="btn btn-default">Delete</button>
 </div>
+-->

@@ -2,8 +2,8 @@
 
 
     if(!isset($c)) exit;
-    include_once 'common/model/db/db.php';
-    include_once 'common/view/draw_table_from_sql.php';
+    include_once 'app/model/db/db.php';
+    include_once 'app/view/draw_table_from_sql.php';
     
     $row = fetch_row_from_sql('
         SELECT
@@ -17,8 +17,10 @@
     ;');
     
     $data['title'] = $row[1];
-    include 'common/view/bootstrap_html_header.php';
-    include_once 'common/view/draw_table_from_sql.php';
+    include 'app/view/html_head.php';
+    
+    include 'app/model/admin/menu.php';
+    include 'app/view/menu.php';
     
     
 ?>
@@ -29,13 +31,8 @@
 
 </style>
 <div class="container">
-    <ul class="nav nav-tabs" id="myTab">
-        <li class="active"><a href="?c=index">Объекты</a></li>
-        <li><a href="?c=renters">Арендаторы</a></li>
-        <li><a href="?c=sql">SQL</a></li>
-    </ul>
     <?php
-        include 'admin/view/object_bills.php';
+        include 'app/view/admin/object_bills.php';
     ?>
 </div>
     <?php

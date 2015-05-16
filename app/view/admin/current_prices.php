@@ -22,7 +22,7 @@
                 break;
             case 'update':
                 if ($_POST['ids']!='-') {
-                    include 'admin/view/current_prices_edit_records.php';
+                    include 'app/view/admin/current_prices_edit_records.php';
                     exit;
                 };
                 break;
@@ -43,7 +43,7 @@
                 };
                 break;
             case 'add':
-                include 'admin/view/current_prices_add_record.php';
+                include 'app/view/admin/current_prices_add_record.php';
                 exit;
                 break;
             case 'add_record':
@@ -92,6 +92,8 @@
     $table['align'] = array('center','left','center','right');
     $table['fontsize'] = '14px';
     $table['id'] = 'prices';
+    $table['count'] = true;
+    $table['hide_first'] = true;
     
     draw_simple_table($table);
     

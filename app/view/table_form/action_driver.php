@@ -5,11 +5,16 @@
     //pre($_POST);
     
     if (isset($_POST['table']) AND $_POST['table']==$table['id']) {
-        if(isset($_POST['action'])){
-            switch ($_POST['action']) {
+        if(isset($_POST['record_action'])){
+            switch ($_POST['record_action']) {
                 case 'add':
                     if ($table['addable']==1) {
                         include 'add_form.php';
+                    };
+                    break;
+                case 'search':
+                    if (isset($table['sql'])) {
+                        include 'search_action.php';
                     };
                     break;
                 case 'delete':
@@ -55,7 +60,10 @@
                         include 'clone_form.php';
                     };
                     break;
-                case 'print': case 'csv': case 'construct':
+                case 'construct':
+                    include 'construct.php';
+                    break;
+                case 'print': case 'csv': 
                     //pre($table['path']);
                     //pre($_POST);
                     break;

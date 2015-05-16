@@ -23,6 +23,10 @@
         $('input#action').val('add');
         $('form#form').submit();        
     }
+    function mail_bill(elem) {
+        $('input#action').val('mail_bill');
+        $('form#form').submit();        
+    }
     function delete_record(elem) {
         var trs=get_selected_tr_positions();
         if (trs.length==0) return true;
@@ -38,9 +42,10 @@
         };
     }
 </script>
-<footer class="footer">
+<footer class="footer hidden-print">
       <div class="container">
             <form id="form" method="POST">
+                <a class="btn btn-default" href="?c=object_bills&id=<?php echo $_GET['id']; ?>">Назад к счетам</a>
                 <input type="button" onclick="edit_selected(this);" 
                        class="btn btn-primary" 
                        value="Редактировать"/>
@@ -52,8 +57,13 @@
                        value="Удалить"/>
                 <input type="hidden" id="action" name="action" value="">
                 <input type="hidden" id="ids" name="ids" value=""/>
+                <!--
                 <a href='?c=make_bill&id=<?php echo $_GET['id']; ?>' 
                    class='btn btn-warning'>Создать счёт</a>
+                -->
+                <input type="button" onclick="mail_bill(this);" 
+                       class="btn btn-success" 
+                       value="Отправить счёт по емейл"/>
             </form>
       </div>
 </footer>

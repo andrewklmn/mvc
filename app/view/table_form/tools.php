@@ -1,5 +1,6 @@
 <?php
 
+    if(!isset($c)) exit;
     //if ($table['printable']==1) echo '<button type="button" onclick="print_'.$table['id'].'(this);" class="btn btn-md btn-default">Print</button> ';
     //if ($table['csvable']==1) echo '<button type="button" onclick="csv_'.$table['id'].'(this);" class="btn btn-md btn-default">CSV</button>';
 

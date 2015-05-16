@@ -17,7 +17,7 @@
             name = "'.addslashes($row[1]).'"
     ;');
     $renter = $t[0];
-    echo $renter;
+    
     
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
@@ -174,4 +174,4 @@
     
     echo '<h4>Долг: ',($summa[0] - $oplaty[0]),' грн</h4>';
     
-    include 'admin/view/payments_buttons.php';
+    include 'app/view/admin/payments_buttons.php';

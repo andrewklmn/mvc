@@ -26,18 +26,33 @@
 
     $table['data'] = get_array_from_sql('
         SELECT
-            id,
+            object.id,
             name,
-            current_renter
+            current_renter,
+            IFNULL(SUM(bill.sum),0) - IFNULL(t1.sum,0)
         FROM
             object
+        LEFT JOIN
+            bill ON bill.object = object.name AND current_renter = bill.renter
+        LEFT JOIN
+            (SELECT
+                SUM(sum) as sum,
+                payment.object as object,
+                payment.renter as renter
+             FROM
+                payment
+             GROUP BY
+                object,renter) as t1
+                ON t1.object= object.name AND t1.renter = current_renter
         WHERE 
-            id > 1
+            object.id > 1
+        GROUP BY 
+            name
         ORDER BY name ASC
     ;');
 
-    $table['header'] = array('Номер','Адрес','Арендатор');
-    $table['align'] = array('center','left','left');
+    $table['header'] = array('Номер','Адрес','Арендатор','Долг');
+    $table['align'] = array('center','left','left','right');
     $table['fontsize'] = '14px';
     $table['id'] = 'objects';
     $table['count'] = true;

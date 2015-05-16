@@ -2,15 +2,16 @@
 
 
     if(!isset($c)) exit;
-    include_once 'common/model/db/db.php';
-    include_once 'common/view/draw_table_from_sql.php';
+    include_once 'app/model/db/db.php';
+    include_once 'app/view/draw_table_from_sql.php';
     
     if (isset($_POST['create_new_bill']) AND $_POST['create_new_bill']=='create_new_bill') {
         // создаем новый счёт
         $object = fetch_row_from_sql('
             SELECT
                 name,
-                current_renter
+                current_renter,
+                id
             FROM
                 object
             WHERE
@@ -82,7 +83,7 @@
         ;');
         
         // переходим на редактирование счета
-        header('location: ?c=bill&day='.$t[0]);
+        header('location: ?c=object_bills&id='.$object[2]);
         exit;
     };
     
@@ -98,9 +99,10 @@
     ;');
     
     $data['title'] = 'Счёт - '.$row[1];
-    include 'common/view/bootstrap_html_header.php';
-    include_once 'common/view/draw_table_from_sql.php';
+    include 'app/view/html_head.php';
     
+    include 'app/model/admin/menu.php';
+    include 'app/view/menu.php';
     
 ?>
 <script>
@@ -110,11 +112,6 @@
 
 </style>
 <div class="container">
-    <ul class="nav nav-tabs" id="myTab">
-        <li class="active"><a href="?c=index">Объекты</a></li>
-        <li><a href="?c=renters">Арендаторы</a></li>
-        <li><a href="?c=sql">SQL командер</a></li>
-    </ul>
     <h3>Создать новый счёт - <?php echo $row[1]; ?>?</h3>
     <form method='POST'>
         <input type='hidden' name='create_new_bill' value='create_new_bill'>

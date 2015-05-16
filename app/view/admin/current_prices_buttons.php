@@ -12,7 +12,7 @@
         if (trs.length==0) return true;
         var ids = [];
         $(trs).each(function(){
-            var tds = $(this).find('td');
+            var tds = $(this).find('td.field');
             ids[ids.length] = $(tds[0]).html();
         });        
         $('input#action').val('update');
@@ -28,7 +28,7 @@
         if (trs.length==0) return true;
         var ids = [];
         $(trs).each(function(){
-            var tds = $(this).find('td');
+            var tds = $(this).find('td.field');
             ids[ids.length] = $(tds[0]).html();
         });
         if (confirm('Удалить выбранные записи?')) {
@@ -41,6 +41,7 @@
 <footer class="footer">
       <div class="container">
             <form id="form" method="POST">
+                <a class="btn btn-default" href="?c=index">Назад к объектам</a>
                 <input type="button" onclick="edit_selected(this);" 
                        class="btn btn-primary" 
                        value="Редактировать"/>

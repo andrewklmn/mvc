@@ -1,11 +1,14 @@
 <?php
 
     if(!isset($c)) exit;
-    include_once 'common/model/db/db.php';
-    include_once 'common/view/draw_simple_table.php';
+    include_once 'app/model/db/db.php';
+    include_once 'app/view/draw_simple_table.php';
     
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
+            case 'mail_bill':
+                include 'app/view/mail_bill.php';
+                break;
             case 'delete':
                 if ($_POST['ids']!='-') {
                     do_sql('
@@ -17,20 +20,36 @@
                 break;
             case 'update':
                 if ($_POST['ids']!='-') {
-                    include 'admin/view/bill_positions_edit_records.php';
+                    include 'app/view/admin/bill_positions_edit_records.php';
                     exit;
                 };
                 break;
             case 'update_records':
-                echo '<pre>';
-                print_r($_POST);
-                echo '</pre>';
+                //pre($_POST);
+                $records = explode('||', $_POST['records']);
+                foreach ($records as $value) {
+                    $fields = explode('|', $value);
+                    foreach ($fields as $key => $value) {
+                        $fields[$key] = substr(substr($value, 1),0,-1);
+                    };
+                    $sql ='
+                        UPDATE bill
+                        SET
+                            payment="'.addslashes($fields[1]).'",
+                            prev="'.addslashes($fields[2]).'",
+                            current="'.addslashes($fields[3]).'",
+                            sum="'.addslashes($fields[4]).'"
+                        WHERE
+                            id="'.addslashes($fields[0]).'"
+                    ;';
+                    do_sql($sql);
+                };
                 break;
             default:
         };
     };
 
-    echo   '<h3>Счёт по ',$row[3],'</h3>';
+    echo   '<h3>Счёт по ',$row[3],' от ',$_GET['day'],'</h3>';
 
     $table['data'] = get_array_from_sql('
         SELECT

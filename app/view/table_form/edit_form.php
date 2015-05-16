@@ -114,9 +114,12 @@
         </button>
         <form method="POST" id="form" style="display: none;">
             <input type="hidden" id="table" name="table" value="<?php echo $table['id']; ?>"/>
-            <input type="hidden" id="action" name="action" value="edit"/>
+            <input type="hidden" id="action" name="record_action" value="edit"/>
             <input type="hidden" id="save" name="save" value="save"/>
             <input type="hidden" id="data" name="data" value="data"/>    
+        <?php
+            include 'table_form/activate_make_form.php';
+    ?>
         </form>
         <?php
         exit;

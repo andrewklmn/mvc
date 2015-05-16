@@ -61,10 +61,10 @@
                         };
                         ?>
                             <div class="form-group" style="<?php echo $display; ?>">
-                                <label class="control-label col-sm-2" for="<?php echo $table['field'][$k]; ?>">
+                                <label class="control-label col-lg-1" for="<?php echo $table['field'][$k]; ?>">
                                     <?php echo $table['label'][$k]; ?>:
                                 </label>
-                                <div class="col-sm-10">
+                                <div class="col-lg-11">
                                 <?php 
 
                                     switch ($table['format'][$k]) {
