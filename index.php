@@ -7,12 +7,13 @@
 
     //@ob_start("ob_gzhandler"); // gz-compressed output
     
-    error_reporting(E_ALL);     // for debbuging mode
+    error_reporting(E_ERROR);     // for debbuging mode
     //error_reporting(0);     // for production mode    
     date_default_timezone_set('Europe/Kiev');
     session_start();
     
     $program = 'mvc';           // short application name
+    $root_dir = __DIR__;
     
     include_once 'app/model/htmlfix.php';
     function pre($x) {
@@ -60,8 +61,5 @@
                 include 'app/view/404.php';
             };            
     };
-    
-    
     //@ob_end_flush();
     
-?>

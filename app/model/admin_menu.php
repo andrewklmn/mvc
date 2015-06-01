@@ -3,7 +3,7 @@
     if(!isset($c)) exit;
 
     $menu = array(
-        array('index','Objects'),
+        array('index','Indexs'),
         array('renters','Renters'),
         array(
             array( '','Tools'),

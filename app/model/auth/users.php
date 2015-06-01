@@ -10,4 +10,3 @@
         array('user','123','no@mail.com','user')
     );
     
-?>

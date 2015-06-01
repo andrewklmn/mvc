@@ -19,4 +19,3 @@
         return mysqli_affected_rows($db);
     }
 
-?>

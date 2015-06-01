@@ -13,4 +13,3 @@
                             // '10.0.0.1' for restricted host
     );
 
-?>

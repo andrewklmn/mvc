@@ -40,5 +40,3 @@
     
     mysqli_query($db,'SET CHARACTER SET '.DB_CHARSET.';');
     mysqli_query($db,'SET NAMES '.DB_CHARSET.';');
-
-?>

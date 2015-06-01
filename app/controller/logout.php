@@ -10,4 +10,3 @@
     header("Location: https://".$_SERVER['HTTP_HOST'].str_replace('?c=logout', '?c=index', $_SERVER['REQUEST_URI']));
     exit;
 
-?>

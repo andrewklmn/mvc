@@ -44,4 +44,4 @@
 	imagePng($result);
         imageDestroy($Image);
         imageDestroy($result);
-?>
+

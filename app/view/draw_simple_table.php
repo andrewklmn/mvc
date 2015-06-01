@@ -42,13 +42,6 @@
         };
         ?>
             <style>
-                table<?php echo '#'.$table['id']; ?> th {
-                    background-color: #e5e5e5;
-                    font-family: <?php echo $fontfamily; ?>;
-                }
-                table<?php echo '#'.$table['id']; ?> td {
-                    font-family: <?php echo $fontfamily; ?>;
-                }
                 table<?php echo '#'.$table['id']; ?> tr {
                     cursor: pointer;
                 }
@@ -59,9 +52,6 @@
                 table<?php echo '#'.$table['id']; ?> tr.selectedhover {
                     background-color: #a6e1ec;
                 }               
-                table<?php echo '#'.$table['id']; ?> tr.table_data {
-                    background-color: white;
-                }
                 table<?php echo '#'.$table['id']; ?> tr.table_data:hover,
                 table<?php echo '#'.$table['id']; ?> tr.table_datahover {
                     background-color: #f5f5f5;
@@ -157,7 +147,7 @@
                     <?php
                 //}
         
-        echo '<table  class="table" id="'.$table['id'].'" border="1" style="border-collapse:collapse;">';
+        echo '<table  class="table table-condensed" id="'.$table['id'].'">';
         /*
         echo '<colgroup>';
         if (isset($table['count']) AND $table['count']==true) {
@@ -250,4 +240,3 @@
         }
         echo '</table>';
     }
-?>
