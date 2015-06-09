@@ -15,7 +15,6 @@
 <div class="container">
     <?php
 
-
         // Определение свойств модели таблицы
         $table['title'] = 'Арендаторы';
         //$table['id'] = 'table1';
@@ -35,6 +34,7 @@
 
         // Отображение представления таблицы
         include 'app/view/table_form.php';
+
 
     ?>
 </div>
