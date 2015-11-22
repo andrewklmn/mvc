@@ -1,7 +1,7 @@
 <?php
 
     /* 
-     * Simple MVC framework based on "include" and without OOP...
+     * Simple MVC framework based on "include" without OOP...
      * Keep It Simple Stupid 0.0.2
      */
 
